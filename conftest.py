@@ -7,6 +7,6 @@ load_dotenv()
 @pytest.fixture
 def credentials():
     return {
-        "username": os.getenv("SAUCE_USERNAME"),
-        "password": os.getenv("SAUCE_PASSWORD")
+        "username": os.getenv("USERNAME"),
+        "password": os.getenv("PASSWORD")
     }
