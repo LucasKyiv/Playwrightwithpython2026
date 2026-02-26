@@ -43,6 +43,8 @@ jobs:
       - name: Run Playwright tests
         env:
           BROWSER: ${{ github.event.inputs.browser || 'chromium' }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
         run: |
           poetry run pytest --browser $BROWSER --maxfail=1 --disable-warnings -q \
             --html=playwright-report/report.html --self-contained-html
