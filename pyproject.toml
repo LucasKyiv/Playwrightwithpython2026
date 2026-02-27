@@ -8,6 +8,7 @@ package-mode = false
 
 [tool.pytest.ini_options]
 minversion = "7.0"
+base_url = "https://www.saucedemo.com/"
 testpaths = [
     "tests",
 ]
