@@ -21,5 +21,5 @@ def test_hamburger_menu(page, credentials):
         credentials["password"]
     )
     page.get_by_role("button", name="Open Menu").click()
-    expect(page.get_by_role("link", name="About").to_be_visible())
+    expect(page.get_by_role("link", name="About")).to_be_visible()
 
