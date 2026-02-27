@@ -2,6 +2,7 @@ import os
 import pytest
 from dotenv import load_dotenv
 from login_page.login_page import LoginPage
+from playwright.sync_api import expect
 
 load_dotenv()
 
@@ -22,5 +23,5 @@ def logged_in_page(page, credentials, base_url):
         credentials["username"],
         credentials["password"]
     )
-
+    expect(page.locator('[data-test="inventory-container"]')).to_be_visible()
     return page
