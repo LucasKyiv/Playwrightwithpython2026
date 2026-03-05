@@ -20,7 +20,7 @@ def test_logout_is_visible(logged_in_page):
     expect(page.locator("[data-test=\"login-button\"]")).to_be_visible()
 
 
-def test_not_possible_log_invalid_pass(page, credentials, base_url):
+def test_not_possible_log_invalid_pass(page, credentials):
     page.goto("/")
     login_page = LoginPage(page)
     login_page.login(

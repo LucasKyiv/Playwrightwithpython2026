@@ -28,3 +28,9 @@ def logged_in_page(page, credentials, base_url):
 
 
 
+@pytest.fixture(scope="session")
+def browser_context_args(browser_context_args, pytestconfig):
+    return {
+        **browser_context_args,
+        "base_url": pytestconfig.getini("base_url"),
+    }
