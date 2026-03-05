@@ -25,3 +25,6 @@ def logged_in_page(page, credentials, base_url):
     )
     expect(page.locator('[data-test="inventory-container"]')).to_be_visible()
     return page
+
+
+

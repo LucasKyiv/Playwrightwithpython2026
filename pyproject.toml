@@ -15,6 +15,12 @@ testpaths = [
 pythonpath = [
   "."
 ]
+markers = [
+    "regression: marks tests as part of regression suite",
+    "smoke: quick critical path tests",
+    "api: API related tests",
+    "ui: UI tests"
+]
 
 [tool.poetry.dependencies]
 python = "^3.11"
