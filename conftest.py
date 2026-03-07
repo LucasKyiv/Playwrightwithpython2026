@@ -13,9 +13,8 @@ def credentials():
         "password": os.getenv("SAUCE_PASSWORD")
     }
 
-
 @pytest.fixture
-def logged_in_page(page, credentials, base_url):
+def logged_in_page_admin(page, credentials, base_url):
     page.goto("/")
 
     login_page = LoginPage(page)

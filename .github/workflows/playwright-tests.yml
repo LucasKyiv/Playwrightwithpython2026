@@ -45,6 +45,8 @@ jobs:
           BROWSER: ${{ github.event.inputs.browser || 'chromium' }}
           SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
           SAUCE_PASSWORD: ${{ secrets.SAUCE_PASSWORD }}
+          LOCKED_USERNAME: ${{ secrets.LOCKED_USERNAME }}
+          LOCKED_PASSWORD: ${{ secrets.LOCKED_PASSWORD }}
         run: |
           poetry run pytest --browser $BROWSER --maxfail=1 --disable-warnings -q \
             --html=playwright-report/report.html --self-contained-html
