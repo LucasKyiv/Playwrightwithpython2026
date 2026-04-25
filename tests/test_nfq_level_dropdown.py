@@ -1,5 +1,5 @@
-from playwright.sync_api import Page
-from tests.constants import NFQ_LEVELS, EQF_LEVELS, AWARD_CLASSES, SECTORS, AWARDING_BODIES
+from playwright.sync_api import Page, expect
+from constants import NFQ_LEVELS, EQF_LEVELS, AWARD_CLASSES, SECTORS, AWARDING_BODIES
 
 
 def test_nfq_level_dropdown_values(page: Page) -> None:
@@ -74,3 +74,14 @@ def test_awarding_body_dropdown_values(page: Page) -> None:
     values = [opt.text_content().strip() for opt in options if opt.text_content().strip()]
 
     assert values == AWARDING_BODIES, f"Actual values ({len(values)}): {values}"
+
+
+def test_field_of_learning_typeahead_contains_arts(page: Page) -> None:
+    page.goto("https://irq.ie/search/qualifications")
+    page.wait_for_load_state("networkidle")
+    page.get_by_role("button", name="Allow all cookies").click()
+
+    field = page.get_by_label("Field of learning")
+    field.press_sequentially("a")
+
+    expect(page.get_by_role("option", name="Arts and humanities")).to_be_visible()
